@@ -17,6 +17,7 @@ A. Create Two GKE Cluster one for ArgoCD and another for Application deployment.
     --machine-type "n1-standard-1" \
     --num-nodes "2" --min-nodes "2" --max-nodes "2" \
     --enable-ip-alias --enable-autoscaling --disk-size 10 --async
+    
   iii) Create the Application GKE Cluster
    gcloud container clusters create prod-app-cluster \
     --project PROJECT_ID \
