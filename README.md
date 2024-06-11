@@ -2,9 +2,9 @@
 
 Naming convention for ArgoCD & Application deployment GKE Clusters
 
-  a. ArgoCD GEK Cluster: <env>-argocd-cluster
+  a. ArgoCD GEK Cluster: '<env>'-argocd-cluster
   
-  b. Application Deployment GKE Cluster : <env>-app-cluster
+  b. Application Deployment GKE Cluster : '<env>'-app-cluster
 
 A. Create Two GKE Cluster one for ArgoCD and another for Application deployment.
   
@@ -105,13 +105,13 @@ B. Installing ArgoCD Application on prod-argocd-cluster:
 
 12. Create user and update password on argocd
 
-   kubectl -n argocd patch configmap argocd-cm --patch='{"data":{"accounts.prem":"apikey,login"}}'
+    kubectl -n argocd patch configmap argocd-cm --patch='{"data":{"accounts.prem":"apikey,login"}}'
+
+    argocd account list
+
+    argocd account update-password --account prem --current-password 'Test@123' --new-password  mysecurepass
  
-   argocd account list
-  
-   argocd account update-password --account prem --current-password 'Test@123' --new-password  mysecurepass
- 
-13 Logout from admin to login as prem
+13. Logout from admin to login as prem
  
    argocd logout  <argocd-server IP>
  
