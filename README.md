@@ -10,7 +10,7 @@ A. Create Two GKE Cluster one for ArgoCD and another for Application deployment.
   
   i) Launch Cloud shell and set the env variables:
   
-  export PROJECT_ID=<PROJECT_ID>
+  export PROJECT_ID=\<PROJECT_ID>\
   
   export ZONE=<ZONE>
 
