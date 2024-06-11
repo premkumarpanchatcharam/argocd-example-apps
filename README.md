@@ -75,43 +75,43 @@ B. Installing ArgoCD Application on prod-argocd-cluster:
  
 6.  get the initial admin password for ArgoCD to login
     
-     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
- 
-             or 
- 
+     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo 
+
+    /OR
+     
       argocd admin initial-password -n argocd
  
-7. Login into ArgoCD
+8. Login into ArgoCD
   
      argocd login \<argocd-server IP>
 
-8. Change the admin password
+9. Change the admin password
 
 	  argocd account update-password
 
-9. Add the Application GKE Cluster into ArgoCD to deploy applications 
+10. Add the Application GKE Cluster into ArgoCD to deploy applications 
  
      argocd cluster add \<cluster-name>
 
      argocd cluster list
  
-10. List the list of accounts created
+11. List the list of accounts created
  
      argocd account list
  
-11. List the applications configured
+12. List the applications configured
  
      argocd app list
 
-12. Create user and update password on argocd
+13. Create user and update password on argocd
 
     kubectl -n argocd patch configmap argocd-cm --patch='{"data":{"accounts.prem":"apikey,login"}}'
 
     argocd account list
 
-    argocd account update-password --account prem --current-password 'Test@123' --new-password  mysecurepass
+    argocd account update-password --account prem --current-admin-password 'Test@123' --new-password  mysecurepass
  
-13. Logout from admin to login as prem
+14. Logout from admin to login as prem
 
     argocd logout  \<argocd-server IP>
     argocd login \<argocd-server IP> --username prem --password mysecurepass
