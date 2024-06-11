@@ -1,13 +1,17 @@
 # argocd-Installation
 
 Naming convention for ArgoCD & Application deployment GKE Clusters
+
   a. ArgoCD GEK Cluster: <env>-argocd-cluster
+  
   b. Application Deployment GKE Cluster : <env>-app-cluster
 
 A. Create Two GKE Cluster one for ArgoCD and another for Application deployment.
   
   i) Launch Cloud shell and set the env variables:
+  
   export PROJECT_ID=<PROJECT_ID>
+  
   export ZONE=<ZONE>
 
   ii) Create the ArgoCD GKE Cluster
@@ -29,6 +33,7 @@ A. Create Two GKE Cluster one for ArgoCD and another for Application deployment.
     --enable-ip-alias --enable-autoscaling --disk-size 10 --async
 
   iv) Rename the contexts
+  
       gcloud container clusters get-credentials prod-argocd-cluster --zone $ZONE --project $PROJECT_ID
       
       gcloud container clusters get-credentials prod-app-cluster --zone $ZONE --project $PROJECT_ID
