@@ -2,7 +2,7 @@
 
 Naming convention for ArgoCD & Application deployment GKE Clusters
 
-  a. ArgoCD GEK Cluster: '<env>'-argocd-cluster
+  a. ArgoCD GEK Cluster: /"<env>/"-argocd-cluster
   
   b. Application Deployment GKE Cluster : '<env>'-app-cluster
 
@@ -112,9 +112,8 @@ B. Installing ArgoCD Application on prod-argocd-cluster:
     argocd account update-password --account prem --current-password 'Test@123' --new-password  mysecurepass
  
 13. Logout from admin to login as prem
- 
-   argocd logout  <argocd-server IP>
- 
-   argocd login <argocd-server IP> --username prem --password mysecurepass
+
+    argocd logout  /"<argocd-server IP>"/
+    argocd login <argocd-server IP> --username prem --password mysecurepass
    
 C. Configure the Application on ArgoCD for Continuous Delivery.
